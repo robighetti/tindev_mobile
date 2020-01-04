@@ -67,7 +67,7 @@ export default function Main({navigation}) {
       </TouchableOpacity>
 
       <View style={styles.cardsContainer}>
-        {users.length !== 0 ? (
+        {users.length <= 0 ? (
           <Text style={styles.empty}>Acabou :(</Text>
         ) : (
           users.map((user, index) => (
@@ -91,7 +91,7 @@ export default function Main({navigation}) {
         )}
       </View>
 
-      {users.length > 9 && (
+      {users.length > 0 && (
         <View style={styles.buttonsContainer}>
           <TouchableOpacity onPress={handleDislike} style={styles.button}>
             <Image source={dislike} />

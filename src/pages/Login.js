@@ -20,12 +20,12 @@ export default function Login({navigation}) {
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    AsyncStorage.getItem('user').then(user => {
-      if (user) {
+    AsyncStorage.getItem('user').then(u => {
+      if (u) {
         navigation.navigate('Main', {user});
       }
     });
-  }, [navigation]);
+  }, [navigation, user]);
 
   async function handleLogin() {
     const response = await api.post('/devs', {username: user});
